@@ -19,11 +19,11 @@ function SelectedShowContainer(props) {
   }
 
   function mapEpisodes() {
-    return props.episodes.map((e) => {
-      if (e.season === selectedSeason) {
+    return props.episodes
+      .filter((e) => e.season === +selectedSeason)
+      .map((e) => {
         return <Episode eachEpisode={e} key={e.id} />;
-      }
-    });
+      });
   }
 
   function handleSelectionChange(e) {
